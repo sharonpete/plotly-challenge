@@ -10,20 +10,25 @@ function drawBargraph (sampleId) {
 
         var samples = data.samples;
         var resultArray = samples.filter(s => s.id == sampleId);
-        console.log(resultArray);
+        //console.log(resultArray);
 
         var result = resultArray[0];
 
-        console.log(result);
+        //console.log(result);
 
+        // use otu_ids as the labels for the bar chart
         var otu_ids = result.otu_ids;
-        var otu_labels = result.otu_labels;
-        console.log(otu_ids);
-        console.log(otu_labels);
-    
-        var sample_values = result.sample_values;
-        console.log(sample_values);
+        //console.log(otu_ids);
 
+        // use otu_labels as the hovertext for the chart
+        var otu_labels = result.otu_labels;
+        //console.log(otu_labels);
+    
+        // use sample_values as the values for the barchart
+        var sample_values = result.sample_values;
+        //console.log(sample_values);
+
+        // .slice is used per the instructions display the top 10 OTUs for the individual
         yticks = otu_ids.slice(0, 10).map(otuId => `OTU ${otuId}`).reverse(); //TBD
 
         var barData = {
@@ -48,7 +53,64 @@ function drawBargraph (sampleId) {
 
 function drawBubblechart (sampleId) {
     console.log(`drawBubblechart(${sampleId})`);
+    
+    // read in the data
+    d3.json("data/samples.json").then(data => {
+        var samples = data.samples;
+        var resultArray = samples.filter(s => s.id == sampleId);
+        console.log(resultArray);
 
+        var result = resultArray[0];
+        console.log(result);
+
+        // use otu_ids for the x-values
+        var otu_ids = result.otu_ids;
+        console.log(otu_ids);
+
+        // use sample_values for the y-values
+        var sample_values = result.sample_values;
+        console.log(sample_values);
+
+        // use sample_values for the marker size
+        
+
+        // use otu_ids for the marker color
+
+        // user otu_labels for the text values
+        var otu_labels = result.otu_labels;
+        console.log(otu_labels);
+
+        var trace1 = {
+            x: otu_ids,
+            y: sample_values,
+            text: otu_labels,
+            mode: 'markers',
+            marker: {
+                color: otu_ids,
+                opacity: [1, 0.8, 0.6, 0.4],
+                size: sample_values,  //marker_size
+                sizeref: 1
+                //sizemode: 'area'
+            }
+        };
+
+        var bubbleData = [trace1];
+
+        var bubbleLayout = {
+            title: `Operational Taxonomic Units (OTU) for ${sampleId}`,
+            showLegend: true,
+            height: 600,
+            width: 1200,
+            xaxis: {
+                title: "OTU ID"
+            }
+        };
+
+        Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+    })
+    
+
+    //var sample_values 
 }
 
 function showMetadata (sampleId) {
