@@ -100,7 +100,6 @@ function drawBubblechart (sampleId) {
 
 function showMetadata (sampleId) {
     console.log(`showMetadata(${sampleId})`);
-
     
     d3.json("data/samples.json").then(data => {
         var metadata = data.metadata;
@@ -108,15 +107,11 @@ function showMetadata (sampleId) {
         console.log(result);
         var demographic = d3.select("#sample-metadata");
         demographic.html("");
-        //demographic.append("h6").text(result);
+        
         Object.entries(result[0]).forEach((o) => {
-            //console.log(o);
             demographic.append("h6").text(`${o[0]} :  ${o[1]}\n`);
         });
     });
-
-    
-
 
 }
 
