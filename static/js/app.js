@@ -125,12 +125,71 @@ function showMetadata (sampleId) {
         demographic.html("");
         //demographic.append("h6").text(result);
         Object.entries(result[0]).forEach((o) => {
-            console.log(o);
+            //console.log(o);
             demographic.append("h6").text(`${o[0]} :  ${o[1]}\n`);
         });
     });
 
     
+
+
+}
+
+function drawGauge(sampleId) {
+    console.log(`drawGauge(${sampleId})`);
+    
+    var washFrequency = "";
+    // read in the data
+    d3.json("data/samples.json").then(data => {
+        var metadata = data.metadata;
+        var result = metadata.filter(s => s.id == sampleId);
+        console.log(result);
+        Object.entries(result[0]).forEach(o => {
+            
+            if (o[0] == "wfreq") {
+                washFrequency = o[1];
+            }
+        })
+
+        
+       
+        
+    });
+
+    console.log(`washes: ${washFrequency}`);
+    var data = [
+        {
+            domain: {x: [0,10], y: [0,10]},
+            value: washFrequency,
+            bar: { color: "black"},
+            title: { text: `Frequency of Belly Button Washings for ${sampleId}`},
+            type: "indicator",
+            mode: "gauge+number",
+            delta: { 
+                reference: 10,
+                increasing: {color: "rebeccapurple"}
+            },
+            gauge: {
+                axis: { range: [null, 10], tickwidth: 1, tickcolor: "black" },
+                steps: [
+                    {range: [0 , 2], color: "#0081A7"},
+                    {range: [2 , 4], color: "#00AFB9"},
+                    {range: [4 , 6], color: "#FDFCDC"},
+                    {range: [6 , 8], color: "#FED97B"},
+                    {range: [8 , 10], color: "#F07167"}
+                ]
+            },
+            
+        }
+    ];
+
+    var layout = { 
+        width: 600,
+        height: 500,
+        margin: {t: 0, b: 0}
+    };
+
+    Plotly.newPlot('gauge', data, layout);
 
 
 }
@@ -141,6 +200,7 @@ function optionChanged(newSampleId) {
     drawBargraph(newSampleId);
     drawBubblechart(newSampleId);
     showMetadata(newSampleId);
+    drawGauge(newSampleId);
 
 }
 
@@ -170,7 +230,7 @@ function initDashboard() {
 
         showMetadata(id);
 
-        //drawgauge(id);
+        drawGauge(id);
 
 
     });
