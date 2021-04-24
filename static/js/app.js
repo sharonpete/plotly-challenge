@@ -53,28 +53,20 @@ function drawBubblechart (sampleId) {
     d3.json("data/samples.json").then(data => {
         var samples = data.samples;
         var resultArray = samples.filter(s => s.id == sampleId);
-        console.log(resultArray);
-
+        
         var result = resultArray[0];
-        console.log(result);
-
+        
         // use otu_ids for the x-values
         var otu_ids = result.otu_ids;
-        console.log(otu_ids);
-
+       
         // use sample_values for the y-values
         var sample_values = result.sample_values;
-        console.log(sample_values);
-
-        // use sample_values for the marker size
         
-
+        // use sample_values for the marker size
         // use otu_ids for the marker color
-
         // user otu_labels for the text values
         var otu_labels = result.otu_labels;
-        console.log(otu_labels);
-
+        
         var trace1 = {
             x: otu_ids,
             y: sample_values,
@@ -103,9 +95,7 @@ function drawBubblechart (sampleId) {
 
         Plotly.newPlot("bubble", bubbleData, bubbleLayout);
     })
-    
-
-    //var sample_values 
+ 
 }
 
 function showMetadata (sampleId) {
