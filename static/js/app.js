@@ -10,23 +10,18 @@ function drawBargraph (sampleId) {
 
         var samples = data.samples;
         var resultArray = samples.filter(s => s.id == sampleId);
-        //console.log(resultArray);
 
         var result = resultArray[0];
 
-        //console.log(result);
 
         // use otu_ids as the labels for the bar chart
         var otu_ids = result.otu_ids;
-        //console.log(otu_ids);
 
         // use otu_labels as the hovertext for the chart
         var otu_labels = result.otu_labels;
-        //console.log(otu_labels);
     
         // use sample_values as the values for the barchart
         var sample_values = result.sample_values;
-        //console.log(sample_values);
 
         // .slice is used per the instructions display the top 10 OTUs for the individual
         yticks = otu_ids.slice(0, 10).map(otuId => `OTU ${otuId}`).reverse(); //TBD
