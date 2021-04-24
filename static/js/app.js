@@ -125,8 +125,7 @@ function drawGauge(sampleId) {
         var result = metadata.filter(s => s.id == sampleId);
         
         washFrequency = result[0]['wfreq'];
-        console.log(washFrequency);
-        console.log(`washes: ${washFrequency}`);
+        //console.log(`washes: ${washFrequency}`);
         
         var data = [
             {
@@ -163,7 +162,6 @@ function drawGauge(sampleId) {
         Plotly.newPlot('gauge', data, layout);
 
     });
-
 
 }
 
