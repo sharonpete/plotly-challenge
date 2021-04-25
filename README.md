@@ -9,6 +9,8 @@ If you are so intrigued, there is an attached website <a href="http://robdunnlab
 
 Source of inspiration and data http://robdunnlab.com/projects/belly-button-biodiversity/
 
+However, if you thought this was about navel-gazing, you would only be partially correct.  This homework was a study of the library known as <a href="https://plotly.com/javascript/">Plotly ... for JavaScript</a>  It also has a Python variant which will be studied another day.  Plotly is built on top of <a href="https://d3js.org/">d3.js</a> and <a href="https://github.com/stackgl">stack.gl</a>.  Plotly.js is a "high-level, declarative charting library and ships with over 40 chart types, including 3D charts, statistical graphs, and SVG maps."  Clearly, I have more work to do here.
+
 ### Instructions
 
 
