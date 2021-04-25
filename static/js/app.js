@@ -132,7 +132,7 @@ function drawGauge(sampleId) {
                 domain: {x: [0,10], y: [0,10]},
                 value: washFrequency,
                 bar: { color: "black"},
-                title: { text: `Frequency of Belly Button Washings for ${sampleId}`},
+                title: { text: `Frequency of Belly Button Washings for ${sampleId} <br> Scrubs per Week`},
                 type: "indicator",
                 mode: "gauge+number",
                 delta: { 
