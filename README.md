@@ -12,7 +12,13 @@ Source of inspiration and data http://robdunnlab.com/projects/belly-button-biodi
 However, if you thought this was about navel-gazing, you would only be partially correct.  This homework was a study of the library known as <a href="https://plotly.com/javascript/">Plotly ... for JavaScript</a>  It also has a Python variant which will be studied another day.  Plotly is built on top of <a href="https://d3js.org/">d3.js</a> and <a href="https://github.com/stackgl">stack.gl</a>.  Plotly.js is a "high-level, declarative charting library and ships with over 40 chart types, including 3D charts, statistical graphs, and SVG maps."  Clearly, I have more work to do here.
 
 ### Instructions
+Instructions are simple... follow this <a href="https://sharonpete.github.io/plotly-challenge/">link</a>
 
+- Select a participant from the dropdown
+- Note the top 10 Bacteria Cultures found
+- Note the cool bubble chart with the Operational Taxonomic Units (OTU) for said person
+- Note the gauge with the frequency of belly button washings for same
+- Repeat with a different participant!
 
 
 ### Technical Report:
